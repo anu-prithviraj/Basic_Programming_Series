@@ -1,5 +1,5 @@
 """
-Script to check whhether a given input(int/str) is a palindrom or not using reversed() function
+Script to check whhether a given input(int/str) is palindrom or not.
 """
 import argparse
 import logging
