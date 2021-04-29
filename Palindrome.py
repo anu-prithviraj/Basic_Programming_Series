@@ -1,5 +1,5 @@
-import argparse
 
+import argparse
 
 class PalindromeFinder:
     """
