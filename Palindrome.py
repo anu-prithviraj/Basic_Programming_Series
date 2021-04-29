@@ -36,6 +36,7 @@ def Parse_the_argument():
     """
     Parsing and adding command line arguments.
     """
+    
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=str, required=True,
                         help="Enter a palindrome word eg: AMMA")                 
