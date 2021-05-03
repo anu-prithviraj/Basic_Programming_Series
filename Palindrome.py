@@ -8,7 +8,11 @@ class PalindromeFinder:
     """
 
     def __init__(self, input):
-        self.input = input
+        try:
+            if int(input):
+                raise RuntimeError("Input is numeric, please re-try with alphanumeric entry.")
+        except ValueError:  #except Exception as E (handle all exceptions)
+            self.input = input
 
     def to_find_palindrome(self):
         """
@@ -27,8 +31,10 @@ class PalindromeFinder:
             input_to_case_change = ''.join(e for e in self.input if e.isalnum()).casefold()
         reverse_of_word = input_to_case_change[::-1]
         if input_to_case_change == reverse_of_word:
+            return True
             print("The input given is a PALINDROME !! ")
         else:        
+            return False
             print("The input given is NOT a PALINDROME")
 
 
@@ -45,5 +51,13 @@ def Parse_the_argument():
 if __name__ == '__main__':
     parser = Parse_the_argument()
     args = parser.parse_args()
-    palindrom_object = PalindromeFinder(input = args.input)
-    palindrom_object.to_find_palindrome()
+    try:
+        palindrom_object = PalindromeFinder(input = args.input) #__init__ function gets invoked. 
+    except RuntimeError as E:
+        print(f"Error occurred : {E}")
+    except Exception as Allexp:
+        print(f"Some other exception occured: {Allexp}")    
+    else:
+        palindrom_object.to_find_palindrome()
+    finally:
+        print("Execution completed !")    
